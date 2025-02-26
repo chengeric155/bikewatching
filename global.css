@@ -60,7 +60,46 @@ label {
 
 circle {
     fill-opacity: 60%;
-    fill: steelblue;
+    /* fill: steelblue; */
     stroke: white;
     pointer-events: auto;
+    --color-departures: steelblue;
+    --color-arrivals: darkorange;
+    --color: color-mix(
+        in oklch,
+        var(--color-departures) calc(100% * var(--departure-ratio)),
+        var(--color-arrivals)
+        );
+    fill: var(--color);
 }
+
+.legend {
+    display: flex; /* Align items horizontally */
+    gap: 1px; /* Small gap to prevent colors from touching */
+    margin-block: 1em; /* Space above and below the legend */
+}
+
+/* Style each legend item */
+.legend > div {
+    flex: 1; /* Each div takes up equal space */
+    padding: 0.5em 1.5em; /* More horizontal padding than vertical */
+    color: white; /* Ensure text is readable */
+    font-weight: bold;
+}
+
+/* Apply background color based on departure ratio */
+.legend > div {
+    --color-departures: steelblue;
+    --color-arrivals: darkorange;
+    --color: color-mix(
+      in oklch,
+      var(--color-departures) calc(100% * var(--departure-ratio)),
+      var(--color-arrivals)
+    );
+    background-color: var(--color);
+}
+
+/* Align text differently for each swatch */
+.legend > div:nth-child(1) { text-align: left; }  /* More departures */
+.legend > div:nth-child(2) { text-align: center; } /* Balanced */
+.legend > div:nth-child(3) { text-align: right; }  /* More arrivals */
