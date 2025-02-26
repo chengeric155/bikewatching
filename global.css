@@ -16,8 +16,32 @@ html, body {
     width: 100%;
     display: flex;
     justify-content: center; /* Center horizontally */
-    align-items: center;     /* Center vertically */
+    /* align-items: center;  */
 }
+
+header {
+    display: flex;
+    gap: 1em;
+    align-items: baseline;
+    justify-content: space-between;
+}
+label {
+    margin-left: 0;
+}
+#selected-time {
+    display: block;
+    color: gray;
+    font-style: italic;
+}
+#any-time {
+    display: block;
+    color: gray;
+    font-style: italic;
+}
+#time-slider {
+    width: 300px; 
+}
+
      
 #map {
     width: 100%;    /* Adjust width to your desired size */
